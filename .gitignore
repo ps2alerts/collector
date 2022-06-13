@@ -1,3 +1,10 @@
+# IDE #
+.idea
+.DS_STORE
+.vscode
+
+ready.file
+
 # Logs
 logs
 *.log
