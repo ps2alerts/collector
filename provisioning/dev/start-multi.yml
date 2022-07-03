@@ -9,13 +9,6 @@
     - debug:
         msg: "========= 📡 Starting Collector Module - MULTI ENVIRONMENT MODE 📡 ========="
 
-    - name: Stop any running collector modules
-      docker_compose:
-        project_src: .
-        files:
-          - docker-compose-compiled.yml
-        state: absent
-
     - name: Make a copy of the docker-compose file
       copy:
         src: docker-compose.yml
@@ -54,6 +47,13 @@
         - '$CENSUS_EVENTS'
         - '$CENSUS_EVENTS' # Yes, we have to loop it 3 times...
       register: output
+
+    - name: Stop any running collector modules
+      docker_compose:
+        project_src: .
+        files:
+          - docker-compose-compiled.yml
+        state: absent
 
     - name: Start up collector modules
       docker_compose:
