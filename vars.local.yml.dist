@@ -1,1 +1,3 @@
+container_version: "ghcr.io/nanite-systems/stream-collector:0.0.11"
 census_service_id: "foobar"
+census_events: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"

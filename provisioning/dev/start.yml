@@ -16,17 +16,13 @@
     - name: Start Collector Dev Image
       docker_container:
         name: ps2alerts-collector-pc
-        image: ghcr.io/nanite-systems/stream-collector
+        image: "{{ container_version }}"
         state: started
         restart: no
         recreate: yes
-        pull: yes
         restart_policy: "no"
         volumes:
           - "{{ root_dir }}:/app:rw"
-        ports:
-          - "1337"
-          - "9229:9229"
         networks:
           - name: "ps2alerts"
         tty: true

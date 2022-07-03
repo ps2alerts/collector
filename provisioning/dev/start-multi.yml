@@ -1,0 +1,63 @@
+---
+- hosts: localhost
+  vars:
+    root_dir: "{{ playbook_dir }}/../../"
+    debug: "false"
+  vars_files:
+    - ../../vars.local.yml
+  tasks:
+    - debug:
+        msg: "========= 📡 Starting Collector Module - MULTI ENVIRONMENT MODE 📡 ========="
+
+    - name: Stop any running collector modules
+      docker_compose:
+        project_src: .
+        files:
+          - docker-compose-compiled.yml
+        state: absent
+
+    - name: Make a copy of the docker-compose file
+      copy:
+        src: docker-compose.yml
+        dest: docker-compose-compiled.yml
+
+    # Replace $CENSUS_SERVICE_ID from the user's local vars. DO NOT COMMIT THIS FILE!
+    - name: Inject census service ID into docker-compose-compiled.yml file
+      lineinfile:
+        path: "{{ playbook_dir }}/docker-compose-compiled.yml"
+        search_string: '{{ item }}'
+        line: '      SERVICE_ID: "{{ census_service_id }}"'
+      with_items:
+        - '$CENSUS_SERVICE_ID'
+        - '$CENSUS_SERVICE_ID'
+        - '$CENSUS_SERVICE_ID' # Yes, we have to loop it 3 times...
+      register: output
+
+    - name: Inject container version into docker-compose-compiled.yml file
+      lineinfile:
+        path: "{{ playbook_dir }}/docker-compose-compiled.yml"
+        search_string: '{{ item }}'
+        line: '    image: "{{ container_version }}"'
+      with_items:
+        - '$VERSION'
+        - '$VERSION'
+        - '$VERSION' # Yes, we have to loop it 3 times...
+      register: output
+
+    - name: Inject census events config into docker-compose-compiled.yml file
+      lineinfile:
+        path: "{{ playbook_dir }}/docker-compose-compiled.yml"
+        search_string: '{{ item }}'
+        line: '      SUBSCRIBE_EVENTS: "{{ census_events }}"'
+      with_items:
+        - '$CENSUS_EVENTS'
+        - '$CENSUS_EVENTS'
+        - '$CENSUS_EVENTS' # Yes, we have to loop it 3 times...
+      register: output
+
+    - name: Start up collector modules
+      docker_compose:
+        project_src: .
+        files:
+          - docker-compose-compiled.yml
+        state: present
