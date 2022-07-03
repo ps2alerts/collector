@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+  vars:
+    root_dir: "{{ playbook_dir }}/../../"
+    debug: "false"
+  vars_files:
+    - ../../vars.local.yml
+  tasks:
+    - debug:
+        msg: "========= 📡 Starting Collector Module Cluster - PC ONLY 📡 ========="
+    - name: Stop collector if running
+      docker_container:
+        name: ps2alerts-collector-pc
+        state: absent
+
+    - name: Start Collector Dev Image
+      docker_container:
+        name: ps2alerts-collector-pc
+        image: ghcr.io/nanite-systems/stream-collector
+        state: started
+        restart: no
+        recreate: yes
+        pull: yes
+        restart_policy: "no"
+        volumes:
+          - "{{ root_dir }}:/app:rw"
+        ports:
+          - "1337"
+          - "9229:9229"
+        networks:
+          - name: "ps2alerts"
+        tty: true
+        env:
+          SERVICE_ID: "{{ census_service_id }}"
+          PS2_ENVIRONMENT: "ps2"
+          RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
+          RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+        labels:
+          traefik.enable: "false"
