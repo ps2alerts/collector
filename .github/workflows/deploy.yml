@@ -1,5 +1,5 @@
 ---
-name: Build & Deploy Production
+name: Deploy Application
 on:
   workflow_run:
     workflows: ["Tag & Release"]
