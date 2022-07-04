@@ -1,5 +1,6 @@
 common:
   name: ps2alerts-collector
+  foo: bar
 
 deployment:
   containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
