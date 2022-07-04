@@ -1,10 +1,15 @@
 ---
 name: Deploy Application
+#on:
+#  workflow_run:
+#    workflows: ["Tag & Release"]
+#    types:
+#      - completed
+
 on:
-  workflow_run:
-    workflows: ["Tag & Release"]
-    types:
-      - completed
+  push:
+    branches:
+      - dev
 jobs:
   deploy-helm:
     runs-on: ubuntu-latest
@@ -23,7 +28,7 @@ jobs:
 
       # Copy the helm chart to the correct place for the below action to work
       - name: Move helm chart to correct position
-        run: cp -r provisioning/helm/charts/microservice charts/app
+        run: mkdir -p charts/app && cp -r provisioning/helm/charts/microservice charts/app
 
       - name: Deploy PC
         uses: 'glopezep/helm@v1.7.1'
