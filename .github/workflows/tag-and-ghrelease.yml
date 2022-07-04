@@ -24,7 +24,6 @@ jobs:
           target-branch: 'master'
 
       - name: Create new GitHub Release
-        if: steps.changed-files-specific.outputs.any_modified == 'true'
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.version.outputs.newTag }}
