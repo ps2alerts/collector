@@ -36,7 +36,7 @@ jobs:
           token: '${{ github.token}}'
           value-files: >-
           [
-            "provisioning/production/values-pc.yaml",
+            "provisioning/production/values-pc.yaml"
           ]
           timeout: 300
         env:
