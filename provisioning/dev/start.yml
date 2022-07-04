@@ -31,5 +31,6 @@
           PS2_ENVIRONMENT: "ps2"
           RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
           RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+          SUBSCRIBE_EVENTS: "{{ census_events }}"
         labels:
           traefik.enable: "false"
