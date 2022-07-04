@@ -39,12 +39,12 @@ jobs:
           namespace: 'ps2alerts'
           chart: 'app'
           secrets: '${{ toJSON(secrets) }}'
-          token: '${{ github.token}}'
-          value-files: "/github/home/provisioning/production/values-pc.yaml"
+          token: '${{ github.token }}'
+          value-files: "provisioning/production/values-pc.yaml"
           dry-run: true
           timeout: 120s
         env:
-          KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG }}"
+          KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG_RAW }}"
 
       # Outputs the rollout status and returns a 0 signal (thus completing the workflow) once it's rolled out.
       - uses: actions-hub/kubectl@master
