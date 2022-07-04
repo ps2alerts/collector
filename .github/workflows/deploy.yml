@@ -19,7 +19,7 @@ jobs:
         id: latesttag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
         with:
-          fallback: 'UNKNOWN' # Optional fallback tag to use when no tag can be found
+          fallback: 'UNKNOWN' # Optional fallback tag to use when no tag can be found foo
 
       # Copy the helm chart to the correct place for the below action to work
       - name: Move helm chart to correct position
