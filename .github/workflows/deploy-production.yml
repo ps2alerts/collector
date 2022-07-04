@@ -34,10 +34,7 @@ jobs:
           chart: 'app'
           secrets: '${{ toJSON(secrets) }}'
           token: '${{ github.token}}'
-          value-files: >-
-          [
-            "provisioning/production/values-pc.yaml"
-          ]
+          value-files: "provisioning/production/values-pc.yaml"
           timeout: 300
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG }}"
