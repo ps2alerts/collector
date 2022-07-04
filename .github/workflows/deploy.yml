@@ -26,7 +26,7 @@ jobs:
         run: cp provisioning/helm/charts/microservice charts/app
 
       - name: Deploy PC
-        uses: 'deliverybot/helm@v1.7.1'
+        uses: 'glopezep/helm@v1.7.1'
         with:
           helm: helm3
           release: 'ps2alerts-collector'
