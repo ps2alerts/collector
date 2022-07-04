@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   collector-pc:
-    image: $VERSION
+    image: "$VERSION"
     restart: "no"
     volumes:
       - "../../:/app:rw"
