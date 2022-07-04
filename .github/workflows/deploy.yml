@@ -28,8 +28,9 @@ jobs:
 
       # Copy the helm chart to the correct place for the below action to work
       - name: Move helm chart to correct position
-        run: mkdir -p charts/app && cp -r provisioning/helm/charts/microservice charts/app
-
+        run: |
+          mkdir -p charts/app && \
+          cp -r provisioning/helm/charts/microservice charts/app
       - name: Deploy PC
         uses: 'glopezep/helm@v1.7.1'
         with:
@@ -39,7 +40,8 @@ jobs:
           chart: 'app'
           secrets: '${{ toJSON(secrets) }}'
           token: '${{ github.token}}'
-          value-files: "provisioning/production/values-pc.yaml"
+          value-files: "/github/home/provisioning/production/values-pc.yaml"
+          dry-run: true
           timeout: 120s
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG }}"
