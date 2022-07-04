@@ -40,7 +40,7 @@ jobs:
           secrets: '${{ toJSON(secrets) }}'
           token: '${{ github.token}}'
           value-files: "provisioning/production/values-pc.yaml"
-          timeout: 300
+          timeout: 120s
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG }}"
 
