@@ -1,9 +1,9 @@
 # Bumps the version of the application
 name: Tag & Release
-on:
-  push:
-    branches:
-      - dev
+#on:
+#  push:
+#    branches:
+#      - dev
 jobs:
   release:
     runs-on: ubuntu-latest
