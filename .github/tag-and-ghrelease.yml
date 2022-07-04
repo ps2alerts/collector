@@ -1,0 +1,30 @@
+# Bumps the version of the application
+name: Tag & Release
+on:
+  push:
+    branches:
+      - master
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout source code
+        uses: 'actions/checkout@v3'
+        with:
+          fetch-depth: 2
+
+      - name: Bump package version
+        id: version
+        uses: 'phips28/gh-action-bump-version@master'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: 'master'
+
+      - name: Create new GitHub Release
+        if: steps.changed-files-specific.outputs.any_modified == 'true'
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.version.outputs.newTag }}

@@ -1,0 +1,9 @@
+{
+  "name": "ps2alerts-collector",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ps2alerts/collector.git"
+  },
+  "homepage": "https://github.com/ps2alerts/collector#readme"
+}
