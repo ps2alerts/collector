@@ -31,6 +31,7 @@ jobs:
         run: |
           mkdir -p charts/app && \
           cp -r provisioning/helm/charts/microservice charts/app
+
       - name: Deploy PC
         uses: 'glopezep/helm@v1.7.1'
         with:
