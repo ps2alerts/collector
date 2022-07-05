@@ -1,9 +1,9 @@
 ---
-name: Deploy Application
+name: Release
 on:
   push:
     branches:
-      - dev
+      - master
 jobs:
   release:
     runs-on: ubuntu-latest
