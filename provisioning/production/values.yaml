@@ -3,6 +3,7 @@ common:
 
 deployment:
   one:
+    index: "pc"
     containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
     env:
       - name: SERVICE_ID
@@ -16,6 +17,7 @@ deployment:
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   two:
+    index: "ps4eu"
     containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
     env:
       - name: SERVICE_ID
@@ -29,6 +31,7 @@ deployment:
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   three:
+    index: "ps4us"
     containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
     env:
       - name: SERVICE_ID
