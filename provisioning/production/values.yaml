@@ -11,7 +11,7 @@ deployments:
       - name: PS2_ENVIRONMENT
         value: "ps2"
       - name: RABBITMQ_URL
-        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
       - name: RABBITMQ_COLLECTOR_EXCHANGE
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
@@ -25,7 +25,7 @@ deployments:
       - name: PS2_ENVIRONMENT
         value: "ps2ps4eu"
       - name: RABBITMQ_URL
-        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
       - name: RABBITMQ_COLLECTOR_EXCHANGE
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
@@ -39,7 +39,7 @@ deployments:
       - name: PS2_ENVIRONMENT
         value: "ps2ps4us"
       - name: RABBITMQ_URL
-        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
       - name: RABBITMQ_COLLECTOR_EXCHANGE
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
