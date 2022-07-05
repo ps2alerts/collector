@@ -54,7 +54,7 @@ jobs:
           chart: provisioning/helm/charts/microservice
           secrets: ${{ toJSON(secrets) }}
           token: ${{ github.token }}
-          value-files: provisioning/production/values-pc.yaml
+          value-files: provisioning/production/values.yaml
           version: ${{ steps.latesttag.outputs.tag }}
           timeout: 120s
         env:

@@ -1,0 +1,43 @@
+common:
+  name: ps2alerts-collector-pc
+
+deployment:
+  one:
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    env:
+      - name: SERVICE_ID
+        value: "${{ secrets.CENSUS_SERVICE_ID }}"
+      - name: PS2_ENVIRONMENT
+        value: "ps2"
+      - name: RABBITMQ_URL
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+      - name: RABBITMQ_COLLECTOR_EXCHANGE
+        value: "ps2alerts-census"
+      - name: SUBSCRIBE_EVENTS
+        value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+  two:
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    env:
+      - name: SERVICE_ID
+        value: "${{ secrets.CENSUS_SERVICE_ID }}"
+      - name: PS2_ENVIRONMENT
+        value: "ps2ps4eu"
+      - name: RABBITMQ_URL
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+      - name: RABBITMQ_COLLECTOR_EXCHANGE
+        value: "ps2alerts-census"
+      - name: SUBSCRIBE_EVENTS
+        value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+  three:
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    env:
+      - name: SERVICE_ID
+        value: "${{ secrets.CENSUS_SERVICE_ID }}"
+      - name: PS2_ENVIRONMENT
+        value: "ps2ps4us"
+      - name: RABBITMQ_URL
+        value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672"
+      - name: RABBITMQ_COLLECTOR_EXCHANGE
+        value: "ps2alerts-census"
+      - name: SUBSCRIBE_EVENTS
+        value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
