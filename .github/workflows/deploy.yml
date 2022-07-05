@@ -66,4 +66,4 @@ jobs:
         env:
           KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }}
         with:
-          args: rollout status deployment/ps2alerts-collector -n ps2alerts
+          args: rollout status deployment/ps2alerts-collector-pc -n ps2alerts

@@ -1,7 +1,7 @@
 common:
-  name: ps2alerts-collector-pc
+  name: ps2alerts-collector
 
-deployment:
+deployments:
   one:
     index: "pc"
     containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
