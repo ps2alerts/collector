@@ -35,7 +35,7 @@ jobs:
         with:
           find: "{{ version }}"
           replace: "${{ steps.version.outputs.newTag }}"
-          include: provisioning/production/values.yaml # Will match all README.md files in any nested directory
+          include: provisioning/production/values.yaml
 
       - name: Deploy Helm
         uses: glopezep/helm@v1.7.1
