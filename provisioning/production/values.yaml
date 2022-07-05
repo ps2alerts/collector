@@ -1,6 +1,9 @@
 common:
   name: ps2alerts-collector
 
+application:
+  version: {{ version }}
+
 deployments:
   one:
     index: "pc"

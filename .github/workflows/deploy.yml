@@ -30,6 +30,13 @@ jobs:
         with:
           tag: ${{ steps.version.outputs.newTag }}
 
+      - name: Find and replace version
+        uses: jacobtomlinson/gha-find-replace@v2
+        with:
+          find: "{{ version }}"
+          replace: "${{ steps.version.outputs.newTag }}"
+          include: provisioning/production/values.yaml # Will match all README.md files in any nested directory
+
       - name: Deploy Helm
         uses: glopezep/helm@v1.7.1
         with:
