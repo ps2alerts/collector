@@ -33,15 +33,16 @@ jobs:
           cp -r provisioning/helm/charts/microservice charts/app
 
       - name: Deploy PC
-        uses: 'glopezep/helm@v1.7.1'
+        uses: glopezep/helm@v1.7.1
         with:
           helm: helm3
-          release: 'ps2alerts-collector'
-          namespace: 'ps2alerts'
-          chart: 'app'
-          secrets: '${{ toJSON(secrets) }}'
-          token: '${{ github.token }}'
+          release: ps2alerts-collector
+          namespace: ps2alerts
+          chart: app
+          secrets: ${{ toJSON(secrets) }}
+          token: ${{ github.token }}
           value-files: "provisioning/production/values-pc.yaml"
+          version: ${{ steps.latesttag.outputs.tag }}
           dry-run: true
           timeout: 120s
         env:
