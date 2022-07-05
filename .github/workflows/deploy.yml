@@ -41,9 +41,8 @@ jobs:
           chart: provisioning/helm/charts/microservice
           secrets: ${{ toJSON(secrets) }}
           token: ${{ github.token }}
-          value-files: "provisioning/production/values-pc.yaml"
+          value-files: provisioning/production/values-pc.yaml
           version: ${{ steps.latesttag.outputs.tag }}
-          dry-run: true
           timeout: 120s
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG_RAW }}"
