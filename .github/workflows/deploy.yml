@@ -38,7 +38,7 @@ jobs:
           helm: helm3
           release: ps2alerts-collector
           namespace: ps2alerts
-          chart: microservice
+          chart: provisioning/helm/charts/microservice
           secrets: ${{ toJSON(secrets) }}
           token: ${{ github.token }}
           value-files: "provisioning/production/values-pc.yaml"
