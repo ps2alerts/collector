@@ -4,7 +4,7 @@ common:
 deployments:
   one:
     index: "pc"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -18,7 +18,7 @@ deployments:
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   two:
     index: "ps4eu"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -32,7 +32,7 @@ deployments:
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   three:
     index: "ps4us"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.11"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
