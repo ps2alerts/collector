@@ -44,7 +44,7 @@ deployments:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
       - name: STREAM_ENDPOINT
-          value: "wss://push.nanite-systems.net/streaming"
+        value: "wss://push.nanite-systems.net/streaming"
       - name: PS2_ENVIRONMENT
         value: "ps2ps4us"
       - name: RABBITMQ_URL
