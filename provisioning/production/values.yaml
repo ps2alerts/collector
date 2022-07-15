@@ -7,7 +7,7 @@ application:
 deployments:
   one:
     index: "pc"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.13"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
