@@ -1,3 +1,4 @@
-container_version: "ghcr.io/nanite-systems/stream-collector:0.0.12"
+container_version: "ghcr.io/nanite-systems/stream-collector:1.0.0"
 census_service_id: "foobar"
 census_events: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+collector_exchange: "ps2alerts-census"

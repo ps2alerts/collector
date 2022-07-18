@@ -31,7 +31,7 @@
           STREAM_ENDPOINT: "wss://push.nanite-systems.net/streaming"
           PS2_ENVIRONMENT: "ps2"
           RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
-          RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+          RABBITMQ_COLLECTOR_EXCHANGE_NAME: "{{ collector_exchange }}"
           SUBSCRIBE_EVENTS: "{{ census_events }}"
         labels:
           traefik.enable: "false"

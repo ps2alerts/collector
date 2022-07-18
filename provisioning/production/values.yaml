@@ -7,7 +7,7 @@ application:
 deployments:
   one:
     index: "pc"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.13"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -17,13 +17,13 @@ deployments:
         value: "ps2"
       - name: RABBITMQ_URL
         value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
-      - name: RABBITMQ_COLLECTOR_EXCHANGE
+      - name: RABBITMQ_COLLECTOR_EXCHANGE_NAME
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   two:
     index: "ps4eu"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -33,13 +33,13 @@ deployments:
         value: "ps2ps4eu"
       - name: RABBITMQ_URL
         value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
-      - name: RABBITMQ_COLLECTOR_EXCHANGE
+      - name: RABBITMQ_COLLECTOR_EXCHANGE_NAME
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
   three:
     index: "ps4us"
-    containerImage: "ghcr.io/nanite-systems/stream-collector:0.0.12"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -49,7 +49,7 @@ deployments:
         value: "ps2ps4us"
       - name: RABBITMQ_URL
         value: "amqp://ps2alerts:${{ secrets.RABBITMQ_PS2ALERTS_PASS }}@ps2alerts-rabbitmq:5672/ps2alerts"
-      - name: RABBITMQ_COLLECTOR_EXCHANGE
+      - name: RABBITMQ_COLLECTOR_EXCHANGE_NAME
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"

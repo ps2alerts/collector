@@ -11,7 +11,7 @@ services:
       SERVICE_ID: "$CENSUS_SERVICE_ID"
       PS2_ENVIRONMENT: "ps2"
       RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
-      RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+      RABBITMQ_COLLECTOR_EXCHANGE_NAME: "$COLLECTOR_EXCHANGE"
       SUBSCRIBE_EVENTS: "$CENSUS_EVENTS"
     labels:
       traefik.enable: "false"
@@ -27,7 +27,7 @@ services:
       SERVICE_ID: "$CENSUS_SERVICE_ID"
       PS2_ENVIRONMENT: "ps2ps4eu"
       RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
-      RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+      RABBITMQ_COLLECTOR_EXCHANGE_NAME: "$COLLECTOR_EXCHANGE_NAME"
       SUBSCRIBE_EVENTS: "$CENSUS_EVENTS"
     labels:
       traefik.enable: "false"
@@ -43,7 +43,7 @@ services:
       SERVICE_ID: "$CENSUS_SERVICE_ID"
       PS2_ENVIRONMENT: "ps2ps4us"
       RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
-      RABBITMQ_COLLECTOR_EXCHANGE: "ps2alerts-census"
+      RABBITMQ_COLLECTOR_EXCHANGE_NAME: "$COLLECTOR_EXCHANGE_NAME"
       SUBSCRIBE_EVENTS: "$CENSUS_EVENTS"
     labels:
       traefik.enable: "false"

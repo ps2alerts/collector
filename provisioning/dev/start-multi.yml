@@ -14,7 +14,7 @@
         src: docker-compose.yml
         dest: docker-compose-compiled.yml
 
-    # Replace $CENSUS_SERVICE_ID from the user's local vars. DO NOT COMMIT THIS FILE!
+    # Replace $CENSUS_SERVICE_ID from the user's local vars. DO NOT COMMIT THIS GENERATED FILE!
     - name: Inject census service ID into docker-compose-compiled.yml file
       lineinfile:
         path: "{{ playbook_dir }}/docker-compose-compiled.yml"
@@ -24,7 +24,6 @@
         - '$CENSUS_SERVICE_ID'
         - '$CENSUS_SERVICE_ID'
         - '$CENSUS_SERVICE_ID' # Yes, we have to loop it 3 times...
-      register: output
 
     - name: Inject container version into docker-compose-compiled.yml file
       lineinfile:
@@ -35,7 +34,16 @@
         - '$VERSION'
         - '$VERSION'
         - '$VERSION' # Yes, we have to loop it 3 times...
-      register: output
+
+    - name: Inject collector_exchange into docker-compose-compiled.yml file
+      lineinfile:
+        path: "{{ playbook_dir }}/docker-compose-compiled.yml"
+        search_string: '{{ item }}'
+        line: '      RABBITMQ_COLLECTOR_EXCHANGE_NAME: "{{ collector_exchange }}"'
+      with_items:
+        - '$COLLECTOR_EXCHANGE'
+        - '$COLLECTOR_EXCHANGE'
+        - '$COLLECTOR_EXCHANGE' # Yes, we have to loop it 3 times...
 
     - name: Inject census events config into docker-compose-compiled.yml file
       lineinfile:
@@ -46,7 +54,6 @@
         - '$CENSUS_EVENTS'
         - '$CENSUS_EVENTS'
         - '$CENSUS_EVENTS' # Yes, we have to loop it 3 times...
-      register: output
 
     - name: Stop any running collector modules
       docker_compose:
