@@ -11,8 +11,8 @@ deployments:
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
-      - name: STREAM_ENDPOINT
-        value: "wss://push.nanite-systems.net/streaming"
+#      - name: STREAM_ENDPOINT
+#        value: "wss://push.nanite-systems.net/streaming"
       - name: PS2_ENVIRONMENT
         value: "ps2"
       - name: RABBITMQ_URL
@@ -27,8 +27,8 @@ deployments:
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
-      - name: STREAM_ENDPOINT
-        value: "wss://push.nanite-systems.net/streaming"
+#      - name: STREAM_ENDPOINT
+#        value: "wss://push.nanite-systems.net/streaming"
       - name: PS2_ENVIRONMENT
         value: "ps2ps4eu"
       - name: RABBITMQ_URL
