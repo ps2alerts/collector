@@ -28,7 +28,7 @@
         tty: true
         env:
           SERVICE_ID: "{{ census_service_id }}"
-#          STREAM_ENDPOINT: "wss://push.nanite-systems.net/streaming"
+          STREAM_ENDPOINT: "wss://push.nanite-systems.net/streaming"
           PS2_ENVIRONMENT: "ps2"
           RABBITMQ_URL: "amqp://guest:guest@ps2alerts-mq:5672"
           RABBITMQ_COLLECTOR_EXCHANGE_NAME: "{{ collector_exchange }}"
