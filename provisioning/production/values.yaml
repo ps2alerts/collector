@@ -23,6 +23,13 @@ deployments:
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
     nodeSelector:
       nodepool: perm-pool
+    resources:
+      cpu:
+        limits: 100m
+        requests: 25m
+      mem:
+        limits: 128Mi
+        requests: 64Mi
   two:
     index: "ps4eu"
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
@@ -41,6 +48,13 @@ deployments:
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
     nodeSelector:
       nodepool: perm-pool
+    resources:
+      cpu:
+        limits: 100m
+        requests: 25m
+      mem:
+        limits: 128Mi
+        requests: 64Mi
   three:
     index: "ps4us"
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
@@ -59,3 +73,10 @@ deployments:
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
     nodeSelector:
       nodepool: perm-pool
+    resources:
+      cpu:
+        limits: 200m
+        requests: 50m
+      mem:
+        limits: 128Mi
+        requests: 64Mi
