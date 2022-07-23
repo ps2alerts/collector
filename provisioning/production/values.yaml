@@ -25,8 +25,8 @@ deployments:
       nodepool: perm-pool
     resources:
       cpu:
-        limits: 100m
-        requests: 25m
+        limits: 150m
+        requests: 50m
       mem:
         limits: 128Mi
         requests: 64Mi
@@ -50,8 +50,8 @@ deployments:
       nodepool: perm-pool
     resources:
       cpu:
-        limits: 100m
-        requests: 25m
+        limits: 60m
+        requests: 20m
       mem:
         limits: 128Mi
         requests: 64Mi
@@ -75,8 +75,8 @@ deployments:
       nodepool: perm-pool
     resources:
       cpu:
-        limits: 200m
-        requests: 50m
+        limits: 75m
+        requests: 25m
       mem:
         limits: 128Mi
         requests: 64Mi
