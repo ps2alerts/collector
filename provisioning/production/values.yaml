@@ -21,6 +21,8 @@ deployments:
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+    nodeSelector:
+      nodepool: perm-pool
   two:
     index: "ps4eu"
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
@@ -37,6 +39,8 @@ deployments:
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+    nodeSelector:
+      nodepool: perm-pool
   three:
     index: "ps4us"
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
@@ -53,3 +57,5 @@ deployments:
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
         value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+    nodeSelector:
+      nodepool: perm-pool
