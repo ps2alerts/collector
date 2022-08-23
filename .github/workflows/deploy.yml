@@ -48,7 +48,7 @@ jobs:
           token: ${{ github.token }}
           value-files: provisioning/production/values.yaml
           version: ${{ steps.version.outputs.newTag }}
-          timeout: 120s
+          # timeout: 120s # Apparently this isn't supported but it's in the docs? :shrug:
         env:
           KUBECONFIG_FILE: "${{ secrets.KUBE_CONFIG_RAW }}"
 
