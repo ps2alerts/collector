@@ -7,6 +7,7 @@ application:
 deployments:
   one:
     index: "pc"
+    enabled: true
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
@@ -32,6 +33,7 @@ deployments:
         requests: 64Mi
   two:
     index: "ps4eu"
+    enabled: true
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
@@ -57,6 +59,7 @@ deployments:
         requests: 64Mi
   three:
     index: "ps4us"
+    enabled: true
     containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
     env:
       - name: SERVICE_ID
