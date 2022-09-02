@@ -21,7 +21,7 @@ deployments:
       - name: RABBITMQ_COLLECTOR_EXCHANGE_NAME
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
-        value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+        value: "Death,FacilityControl,GainExperience,MetagameEvent"
     nodeSelector:
       nodepool: perm-pool
     resources:
@@ -47,7 +47,7 @@ deployments:
       - name: RABBITMQ_COLLECTOR_EXCHANGE_NAME
         value: "ps2alerts-census"
       - name: SUBSCRIBE_EVENTS
-        value: "Death,FacilityControl,GainExperience,MetagameEvent,PlayerFacilityCapture,PlayerFacilityDefend,VehicleDestroy"
+        value: "Death,FacilityControl,GainExperience,MetagameEvent"
     nodeSelector:
       nodepool: perm-pool
     resources:
