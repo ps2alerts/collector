@@ -31,7 +31,7 @@ jobs:
           tag: ${{ steps.version.outputs.newTag }}
 
       - name: Find and replace version
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "{{ version }}"
           replace: "${{ steps.version.outputs.newTag }}"
