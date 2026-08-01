@@ -8,7 +8,7 @@ deployments:
   one:
     index: "pc"
     enabled: true
-    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:5.1.3"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -34,7 +34,7 @@ deployments:
   two:
     index: "ps4eu"
     enabled: true
-    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:5.1.3"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
@@ -60,7 +60,7 @@ deployments:
   three:
     index: "ps4us"
     enabled: true
-    containerImage: "ghcr.io/nanite-systems/stream-collector:1.0.0"
+    containerImage: "ghcr.io/nanite-systems/stream-collector:5.1.3"
     env:
       - name: SERVICE_ID
         value: "${{ secrets.CENSUS_SERVICE_ID }}"
